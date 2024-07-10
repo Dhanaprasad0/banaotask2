@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+</head>
+<body>
+    <h2>Patient Signup</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ patient_form.as_p }}
+        <input type="hidden" name="form_type" value="patient">
+        <button type="submit">Sign Up as Patient</button>
+    </form>
+    <p>Don't have an account? <a href="{% url 'hosiptalapp:login' %}">Sign in here</a></p>
+    <h2>Doctor Signup</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ doctor_form.as_p }}
+        <input type="hidden" name="form_type" value="doctor">
+        <button type="submit">Sign Up as Doctor</button>
+    </form>
+    <p>Don't have an account? <a href="{% url 'hosiptalapp:login' %}">Sign in here</a></p>
+</body>
+</html>
